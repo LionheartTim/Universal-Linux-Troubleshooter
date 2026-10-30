@@ -1,0 +1,65 @@
+{
+  "id": "io.github.LionheartTim.UniversalLinuxTroubleshooter",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "6.11",
+  "sdk": "org.kde.Sdk",
+  "base": "io.qt.PySide.BaseApp",
+  "base-version": "6.11",
+  "command": "ults-run",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--device=input",
+    "--filesystem=host:ro",
+    "--filesystem=host-etc:ro",
+    "--filesystem=host-os:ro",
+    "--filesystem=/var/lib/flatpak:ro",
+    "--filesystem=~/.local/share/flatpak:ro",
+    "--filesystem=/var/lib/dpkg:ro",
+    "--filesystem=/var/lib/rpm:ro",
+    "--filesystem=/var/lib/pacman:ro",
+    "--filesystem=/var/lib/snapd:ro",
+    "--filesystem=/run/udev:ro",
+    "--talk-name=org.freedesktop.Flatpak",
+    "--share=network",
+    "--filesystem=~/.var/app/com.valvesoftware.Steam:ro"
+  ],
+  "build-options": {
+    "env": {
+      "BASEAPP_REMOVE_WEBENGINE": "1",
+      "BASEAPP_DISABLE_NUMPY": "1"
+    }
+  },
+  "cleanup-commands": [
+    "/app/cleanup-BaseApp.sh"
+  ],
+  "modules": [
+    {
+      "name": "ults",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -d /app/opt/ults /app/bin /app/share/applications /app/share/metainfo",
+        "cp -a universal_linux_troubleshooter universal_linux_diagnostics knowledge_sources /app/opt/ults/",
+        "install -m755 flatpak/ults-run /app/bin/ults-run",
+        "install -m644 flatpak/io.github.LionheartTim.UniversalLinuxTroubleshooter.desktop /app/share/applications/io.github.LionheartTim.UniversalLinuxTroubleshooter.desktop",
+        "install -m644 flatpak/io.github.LionheartTim.UniversalLinuxTroubleshooter.metainfo.xml /app/share/metainfo/io.github.LionheartTim.UniversalLinuxTroubleshooter.metainfo.xml",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-16.png /app/share/icons/hicolor/16x16/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-24.png /app/share/icons/hicolor/24x24/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-32.png /app/share/icons/hicolor/32x32/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-48.png /app/share/icons/hicolor/48x48/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-64.png /app/share/icons/hicolor/64x64/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-128.png /app/share/icons/hicolor/128x128/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-256.png /app/share/icons/hicolor/256x256/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png",
+        "install -Dm644 universal_linux_troubleshooter/assets/icons/ults-512.png /app/share/icons/hicolor/512x512/apps/io.github.LionheartTim.UniversalLinuxTroubleshooter.png"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "."
+        }
+      ]
+    }
+  ]
+}

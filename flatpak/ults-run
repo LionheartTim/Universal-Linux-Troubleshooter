@@ -1,0 +1,4 @@
+#!/bin/sh
+# Execute the bundled Python and PySide6 from the Flatpak base app.
+export PYTHONPATH="/app/opt/ults${PYTHONPATH:+:$PYTHONPATH}"
+exec /usr/bin/python3 -m universal_linux_troubleshooter "$@"

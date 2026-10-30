@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 LionheartTim. Metadata license: CC0-1.0. -->
+<component type="desktop-application">
+  <id>io.github.LionheartTim.UniversalLinuxTroubleshooter</id>
+  <name>Universal Linux Troubleshooter</name>
+  <summary>Read-only Linux diagnostics and guided troubleshooting</summary>
+  <developer id="io.github.LionheartTim">
+    <name>LionheartTim</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <!--
+    The application source license is not yet specified. Add its actual
+    SPDX project_license value only after the developer chooses and verifies
+    a license. This metadata is not Flathub-submission-ready until then.
+  -->
+  <description>
+    <p>Universal Linux Troubleshooter helps you investigate hardware and software problems with read-only checks and practical, evidence-based guidance.</p>
+    <p>Choose a complete system scan or investigate a specific symptom. Results separate observed findings from possible causes and link relevant findings to documented troubleshooting topics.</p>
+    <ul>
+      <li>Run up to 72 local diagnostic measurements in a complete system scan.</li>
+      <li>Search 250 documented problem cases, 500 conditional solution routes and 143 additional guides.</li>
+      <li>Inspect diagnoses, solutions and detailed evidence separately.</li>
+      <li>Repeat checks after you decide whether to act on a recommendation.</li>
+      <li>Use offline documentation; external network checks require your explicit permission.</li>
+    </ul>
+    <p>ULTS does not perform automatic repairs and does not require an AI service.</p>
+    <p>Host diagnostics require broad read-only filesystem access and permission to run approved inspection commands on the host system.</p>
+  </description>
+  <launchable type="desktop-id">io.github.LionheartTim.UniversalLinuxTroubleshooter.desktop</launchable>
+  <categories>
+    <category>System</category>
+    <category>Utility</category>
+  </categories>
+  <keywords>
+    <keyword>Linux</keyword>
+    <keyword>diagnostics</keyword>
+    <keyword>troubleshooting</keyword>
+    <keyword>hardware</keyword>
+    <keyword>software</keyword>
+  </keywords>
+  <url type="homepage">https://github.com/LionheartTim</url>
+  <content_rating type="oars-1.1" />
+  <branding>
+    <color type="primary" scheme_preference="light">#1373C9</color>
+    <color type="primary" scheme_preference="dark">#174B8A</color>
+  </branding>
+  <!-- Add real hosted screenshots before Flathub submission. -->
+  <releases>
+    <!-- Prepared for the planned 1.0.0 release; verify date on publication. -->
+    <release version="1.0.0" date="2026-10-30">
+      <description>
+        <p>Initial Universal Linux Troubleshooter release candidate.</p>
+        <ul>
+          <li>Manual Diagnostics and complete system scan with topic-linked solutions.</li>
+          <li>Offline troubleshooting catalog and detailed diagnostic evidence.</li>
+          <li>Cross-distribution host inspection from the Flatpak test bundle.</li>
+          <li>Official ULTS launcher and window icon.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.LionheartTim.UniversalLinuxTroubleshooter</id>
+  <name>Universal Linux Troubleshooter</name>
+  <summary>Read-only troubleshooting for Linux hardware and software</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <description>
+    <p>Universal Linux Troubleshooter offers read-only diagnostic checks, a catalog of documented problems and guided troubleshooting without unattended repairs.</p>
+    <p>Manual Diagnostics and Info are available offline. External network checks require separate approval.</p>
+  </description>
+  <launchable type="desktop-id">io.github.LionheartTim.UniversalLinuxTroubleshooter.desktop</launchable>
+  <categories><category>System</category><category>Utility</category></categories>
+</component>
