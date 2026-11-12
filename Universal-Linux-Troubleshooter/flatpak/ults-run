@@ -1,0 +1,29 @@
+#!/bin/sh
+# ULTS v139: choose the usable Qt platform inside the Flatpak sandbox.
+# Avoid a hardcoded Wayland display number and do not affect other apps.
+xdg_runtime="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+valid_wayland=''
+
+if [ -n "${WAYLAND_DISPLAY:-}" ] && [ -S "$xdg_runtime/$WAYLAND_DISPLAY" ]; then
+    valid_wayland="$WAYLAND_DISPLAY"
+else
+    # In some desktop launches WAYLAND_DISPLAY is unset; find the socket.
+    for candidate in "$xdg_runtime"/wayland-*; do
+        if [ -S "$candidate" ]; then
+            valid_wayland="${candidate##*/}"
+            break
+        fi
+    done
+fi
+
+if [ -n "$valid_wayland" ]; then
+    export WAYLAND_DISPLAY="$valid_wayland"
+    export QT_QPA_PLATFORM=wayland
+elif [ -n "${DISPLAY:-}" ]; then
+    export QT_QPA_PLATFORM=xcb
+else
+    echo 'ULTS: geen bruikbaar Wayland- of X11-display gevonden.' >&2
+    exit 1
+fi
+
+exec /app/bin/ults-run-original "$@"
