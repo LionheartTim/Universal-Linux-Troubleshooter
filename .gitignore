@@ -1,3 +1,22 @@
+# Build output and downloaded build dependencies
+.flatpak-builder/
+build*/
+repo*/
+*.flatpak
+*.zip
+*.tar.gz
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor and OS files
+.DS_Store
+*~
+*.swp
 
 # Easy-Github-Uploader - local/generated/sensitive files
 .git/
